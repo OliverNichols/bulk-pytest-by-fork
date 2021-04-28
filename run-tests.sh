@@ -27,11 +27,9 @@ for row in $(echo "${data}" | jq -r '.[] | @base64'); do
     python3 -m pytest > test_results
 
     
-    echo
     echo $login
-
     tail test_results -n 1 | grep -o "[^=]*"
-
+    echo
 
     cd ../..
     

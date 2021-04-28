@@ -19,6 +19,8 @@ The structure is as follows:
 
 Where the `results/` directory is created by running `run-tests.sh`
 
+See the individual full pytest report in `results/<trainee>/test_results`.
+
 ## Usage
 
 Use 
