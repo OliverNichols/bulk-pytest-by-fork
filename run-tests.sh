@@ -1,11 +1,11 @@
 
 while getopts u:n: opt; do case "${opt}" in
 u) original_owner=${OPTARG};; # required
-n) repo_name=${OPTARG};;
+n) repo_name=${OPTARG};; # required
 esac done
 
-if [ -z $original_owner ]; then original_owner='htr-volker'; fi
-if [ -z $repo_name ]; then repo_name='qa-python-assessment-1'; fi
+if [ -z $original_owner ]; then echo "Specify the host's username, use '-u <user>'"; exit; fi
+if [ -z $repo_name ]; then repo_name="Specify the repository's name, use '-n <repo name>'"; exit; fi
 
 
 data=$(curl -sH "Accept: application/vnd.github.v3+json" https://api.github.com/repos/${original_owner}/${repo_name}/forks)
